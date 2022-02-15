@@ -1,80 +1,67 @@
-###################################################################################
+# -*- coding: utf-8 -*-
+#############################################################################
 #
-#    Copyright (c) 2017-today MuK IT GmbH.
+#    Cybrosys Technologies Pvt. Ltd.
 #
-#    This file is part of MuK Theme
-#    (see https://mukit.at).
+#    Copyright (C) 2021-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Lesser General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
+#    You can modify it under the terms of the GNU LESSER
+#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Lesser General Public License for more details.
+#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
 #
-#    You should have received a copy of the GNU Lesser General Public License
-#    along with this program. If not, see <http://www.gnu.org/licenses/>.
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    (LGPL v3) along with this program.
+#    If not, see <http://www.gnu.org/licenses/>.
 #
-###################################################################################
+#############################################################################
 
 {
-    'name': 'MuK Backend Theme', 
-    'summary': 'Odoo Community Backend Theme',
-    'version': '15.0.1.0.1', 
-    'category': 'Themes/Backend', 
-    'license': 'LGPL-3', 
-    'author': 'MuK IT',
-    'website': 'http://www.mukit.at',
-    'live_test_url': 'https://mukit.at/r/SgN',
-    'contributors': [
-        'Mathias Markl <mathias.markl@mukit.at>',
-    ],
-    'depends': [
-        'base_setup',
-        'web_editor',
-        'mail',
-    ],
-    'excludes': [
-        'web_enterprise',
-    ],
-    'data': [
-       'templates/webclient.xml',
-       'views/res_config_settings_view.xml',
-       'views/res_users.xml',
+    "name": "Code Backend Theme V15",
+    "description": """Minimalist and elegant backend theme for Odoo 14, Backend Theme, Theme""",
+    "summary": "Code Backend Theme V15 is an attractive theme for backend",
+    "category": "Themes/Backend",
+    "version": "15.0.1.0.3",
+    'author': 'Cybrosys Techno Solutions',
+    'company': 'Cybrosys Techno Solutions',
+    'maintainer': 'Cybrosys Techno Solutions',
+    'website': "https://www.cybrosys.com",
+    "depends": ['base', 'web', 'mail'],
+    "data": [
+        'views/icons.xml',
+        'views/layout.xml',
     ],
     'assets': {
-        'web.assets_qweb': [
-            'muk_web_theme/static/src/**/*.xml',
-        ],
-        'web._assets_primary_variables': [
-            'muk_web_theme/static/src/colors.scss',
-        ],
-        'web._assets_backend_helpers': [
-            'muk_web_theme/static/src/variables.scss',
-            'muk_web_theme/static/src/mixins.scss',
+        'web.assets_frontend': [
+            'code_backend_theme/static/src/scss/login.scss',
         ],
         'web.assets_backend': [
-            'muk_web_theme/static/src/webclient/**/*.scss',
-            'muk_web_theme/static/src/webclient/**/*.js',
-            'muk_web_theme/static/src/search/**/*.scss',
-            'muk_web_theme/static/src/search/**/*.js',
-            'muk_web_theme/static/src/legacy/**/*.scss',
-            'muk_web_theme/static/src/legacy/**/*.js',
+            'code_backend_theme/static/src/scss/theme_accent.scss',
+            'code_backend_theme/static/src/scss/navigation_bar.scss',
+            'code_backend_theme/static/src/scss/datetimepicker.scss',
+            'code_backend_theme/static/src/scss/theme.scss',
+            'code_backend_theme/static/src/scss/sidebar.scss',
+
+            'code_backend_theme/static/src/js/fields/colors.js',
+            'code_backend_theme/static/src/js/chrome/sidebar_menu.js',
+        ],
+        'web.assets_qweb': [
+            'code_backend_theme/static/src/xml/styles.xml',
+            'code_backend_theme/static/src/xml/top_bar.xml',
         ],
     },
     'images': [
         'static/description/banner.png',
-        'static/description/theme_screenshot.png'
+        'static/description/theme_screenshot.png',
     ],
-    'external_dependencies': {
-        'python': [],
-        'bin': [],
-    },
+    'license': 'LGPL-3',
+    'pre_init_hook': 'test_pre_init_hook',
+    'post_init_hook': 'test_post_init_hook',
     'installable': True,
     'application': False,
     'auto_install': False,
-    'uninstall_hook': '_uninstall_reset_changes',
 }

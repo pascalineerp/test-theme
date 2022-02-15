@@ -1,33 +1,22 @@
-###################################################################################
+# -*- coding: utf-8 -*-
+#############################################################################
 #
-#    Copyright (c) 2017-today MuK IT GmbH.
+#    Cybrosys Technologies Pvt. Ltd.
 #
-#    This file is part of MuK Theme
-#    (see https://mukit.at).
+#    Copyright (C) 2021-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Lesser General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
+#    You can modify it under the terms of the GNU LESSER
+#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Lesser General Public License for more details.
+#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
 #
-#    You should have received a copy of the GNU Lesser General Public License
-#    along with this program. If not, see <http://www.gnu.org/licenses/>.
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    (LGPL v3) along with this program.
+#    If not, see <http://www.gnu.org/licenses/>.
 #
-###################################################################################
-
-from . import models
-
-from odoo import api, SUPERUSER_ID
-
-
-def _uninstall_reset_changes(cr, registry):
-    env = api.Environment(cr, SUPERUSER_ID, {})
-    env['web_editor.assets'].reset_asset(
-        '/muk_web_theme/static/src/colors.scss', 
-        'web._assets_primary_variables'
-    )
+#############################################################################
+from .hooks import test_pre_init_hook, test_post_init_hook
