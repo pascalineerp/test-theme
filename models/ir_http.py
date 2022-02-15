@@ -20,14 +20,20 @@
 #
 ###################################################################################
 
-from . import models
+from odoo import models
+from odoo.http import request
 
-from odoo import api, SUPERUSER_ID
 
+class IrHttp(models.AbstractModel):
 
-def _uninstall_reset_changes(cr, registry):
-    env = api.Environment(cr, SUPERUSER_ID, {})
-    env['web_editor.assets'].reset_asset(
-        '/muk_web_theme/static/src/colors.scss', 
-        'web._assets_primary_variables'
-    )
+    _inherit = "ir.http"
+
+    def session_info(self):
+        result = super(IrHttp, self).session_info()
+        company = request.session.uid and request.env.user.company_id
+        blend_mode = company and company.background_blend_mode or False
+        result.update(
+            theme_background_blend_mode=blend_mode or "normal",
+            theme_has_background_image=bool(company and company.background_image)
+        )
+        return result

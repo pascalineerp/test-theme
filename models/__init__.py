@@ -20,14 +20,8 @@
 #
 ###################################################################################
 
-from . import models
-
-from odoo import api, SUPERUSER_ID
-
-
-def _uninstall_reset_changes(cr, registry):
-    env = api.Environment(cr, SUPERUSER_ID, {})
-    env['web_editor.assets'].reset_asset(
-        '/muk_web_theme/static/src/colors.scss', 
-        'web._assets_primary_variables'
-    )
+from . import ir_http
+from . import res_company
+from . import res_config_settings
+from . import res_users
+from . import web_editor_assets
